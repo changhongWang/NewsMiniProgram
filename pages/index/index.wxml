@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class='header'>
+  <view class='title-wrapper'>
+    <view class='title-img-wrapper'>
+      <image src='/img/news.png' class='title-img'></image>
+    </view>
+    <view class='title'>快读·资讯</view>
+  </view>
+  <scroll-view scroll-x>
+    <view class='tab-wrapper'>
+      <view class='tab' wx:for="{{types}}">
+        <view class='tab-title' bindtap='changeSwiper' data-swiper-id='{{item.swiper_id}}'>{{item.name}}</view>
+        <view wx:if="{{item.current}}" class="line"></view>
+      </view>
+    </view>
+</scroll-view>
+</view>
+<view class="body">
+  <swiper style="width: 750rpx;height: 1134rpx;"  current='{{swiperCurrent}}' circular='true' bindchange='changeLabel'>
+  <block wx:for='{{types}}'>
+      <swiper-item class="news-item">
+        <!-- <view class="headline"></view> -->
+        <scroll-view scroll-y>
+          <view style='padding: 20rpx;height: 1134rpx;'>
+            <view wx:for="{{newsList}}" class='news-list' id='{{item.id}}' bindtap='viewDetail'>
+              <view class='list-item'>
+                <view>{{item.title}}</view>
+                <view class='item-source'>{{item.source}} {{item.datetime}}</view>
+              </view>
+              <image src='{{item.firstImage}}' mode='scaleToFill' class='list-image'></image>
+            </view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+

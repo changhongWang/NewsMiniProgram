@@ -1,0 +1,27 @@
+<!--pages/detail/detail.wxml-->
+<view class='header'>
+  <view class='title-wrapper'>
+    <view class='title-img-wrapper' bindtap='navigateBack'>
+      <image src='/img/arrow-left.png' class='title-img'></image>
+    </view>
+    <view class='title'>快读·资讯</view>
+  </view>
+</view>
+<view class='body'>
+  <view class='article-title-wrapper'>
+    <view class='article-title'>{{news.title}}</view>
+    <view class='article-other'>
+      <view class='article-source-time'>{{news.source}} {{news.datetime}}</view>
+      <view class='article-read-times'>阅读 {{news.readCount}}</view>
+    </view>
+  </view>
+  <view class='article-main'>
+    <view wx:for="{{news.content}}" class='article-parts'>
+      <view wx:if='{{item.type == "strong"}}' style="font-weight: bolder;">{{item.text}}</view>
+      <view wx:if='{{item.type == "image"}}'>
+       <image src='{{item.src}}' class='article-image'></image>
+      </view>
+      <view wx:if='{{item.type == "p"}}'>{{item.text}}</view>
+    </view>
+  </view>
+</view>

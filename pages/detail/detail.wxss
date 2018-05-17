@@ -1,0 +1,66 @@
+/* pages/detail/detail.wxss */
+.header{
+  height: 128rpx;
+  position: fixed;
+  background-color: #fff;
+  top: 0;
+}
+
+.title-wrapper{
+  padding-top: 40rpx;
+  height: 88rpx;
+  width: 750rpx;
+  display: flex;
+  border-bottom: 1rpx solid #4d8fcc;
+}
+.title-img-wrapper{
+  margin: 19rpx 0 0 15rpx;
+  background-color: #fff;
+  width: 50rpx;
+  height: 50rpx;
+}
+.title-img{
+  width: 30rpx;
+  height: 30rpx;
+  margin: 10rpx
+}
+.title{
+  color: #333;
+  height: 88rpx;
+  line-height: 88rpx;
+  margin-left: 10rpx;
+  font-size: 30rpx;
+}
+
+
+/*主要部分CSS*/
+.body{
+  padding: 0 40rpx;
+  margin-top: 168rpx;
+}
+.article-title{
+  margin-top: 40rpx;
+  font-size: 50rpx;
+  line-height: 70rpx;
+  color: #333;
+}
+.article-other{
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 30rpx;
+  color: #999;
+}
+.article-main{
+  margin: 40rpx 0;
+  font-size: 30rpx;
+  color: #555;
+}
+.article-image{
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+.article-parts{
+  margin-top: 40rpx;
+}
