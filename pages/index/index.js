@@ -25,25 +25,18 @@ Page({
   },
   changeLabel(e) {
     let currentPageId = e.detail.current;
-    let types = this.data.types;
-    for (let i = 0; i < types.length; i++) {
-      types[i].current = false;
-    }
-    types[currentPageId].current = true;
-    this.setData({ types, swiperCurrent: currentPageId });
+    this.setData({ swiperCurrent: currentPageId });
     this.getNews();
   },
   changeSwiper(e) {
     let swiperCurrent = e.target.dataset.swiperId;
-    let types = this.data.types;
-    for (let i = 0; i < types.length; i++) {
-      types[i].current = false;
-    }
-    types[swiperCurrent].current = true;
-    this.setData({ types, swiperCurrent });
+    this.setData({ swiperCurrent });
     this.getNews();
   },
   getNews(callback) {
+    wx.showLoading({
+      title: '加载中，请稍等...',
+    })
     wx.request(
       {
         url: 'https://test-miniprogram.com/api/news/list',
@@ -53,14 +46,23 @@ Page({
         success: (res) => {
           if(res.statusCode == 200){
             let newsList = res.data.result;
-            for(let i=0; i<newsList.length;i++){
-              newsList[i].datetime = util.formatDate(newsList[i].date)
+            if(newsList != undefined && newsList.length != 0){
+              for (let i = 0; i < newsList.length; i++) {
+                newsList[i].datetime = util.formatDate(newsList[i].date)
+              }
+              this.setData({ newsList });
+            }else{
+              // 没有数据的情况
+              this.setData({ newsList: [] })
             }
-            console.log(newsList)
-            this.setData({ newsList });
+            
           }
         },
+        fail: (res) => {
+          this.setData({ newsList: [] })
+        },
         complete: () => {
+          wx.hideLoading();
           if(typeof callback == 'function'){
             callback();
           }

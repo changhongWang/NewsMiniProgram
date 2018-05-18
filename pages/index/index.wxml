@@ -16,21 +16,23 @@
 </scroll-view>
 </view>
 <view class="body">
-  <swiper style="width: 750rpx;height: 1134rpx;"  current='{{swiperCurrent}}' circular='true' bindchange='changeLabel'>
+  <swiper style="width: 750rpx;height: 100%;"  current='{{swiperCurrent}}' circular='true' bindchange='changeLabel'>
   <block wx:for='{{types}}'>
       <swiper-item class="news-item">
         <!-- <view class="headline"></view> -->
-        <scroll-view scroll-y>
-          <view style='padding: 20rpx;height: 1134rpx;'>
-            <view wx:for="{{newsList}}" class='news-list' id='{{item.id}}' bindtap='viewDetail'>
+          <view style='padding: 20rpx;'>
+            <view wx:if="{{newsList.length != 0}}" wx:for="{{newsList}}" class='news-list' id='{{item.id}}' bindtap='viewDetail'>
               <view class='list-item'>
                 <view>{{item.title}}</view>
                 <view class='item-source'>{{item.source}} {{item.datetime}}</view>
               </view>
-              <image src='{{item.firstImage}}' mode='scaleToFill' class='list-image'></image>
+              <image wx:if='{{item.firstImage != "" && item.firstImage != undefined}}' src='{{item.firstImage}}' mode='aspectFill' class='list-image'></image>
+              <image wx:else src='/img/img-fail.png' mode='aspectFill' class='list-image'></image>
+            </view>
+            <view wx:if="{{newsList.length == 0}}" class="null-news-list">
+              <view class='null-news-notice'>无新闻或网络不畅</view>
             </view>
           </view>
-        </scroll-view>
       </swiper-item>
     </block>
   </swiper>

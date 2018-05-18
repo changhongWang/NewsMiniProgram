@@ -1,4 +1,7 @@
 /**index.wxss**/
+page{
+  height: 100%;
+}
 .header{
   background-color: #4d8fcc;
   height: 200rpx;
@@ -59,14 +62,30 @@
   border-radius: 30rpx;
 }
 
-
-
+.body{
+  height: calc(100% - 200rpx);
+}
+.news-item{
+  overflow: auto
+}
 .news-list{
   width: 710rpx;
   height: 160rpx;
   display: flex;
   padding: 20rpx 0;
   border-bottom: 1rpx solid #ccc;
+  justify-content: space-between;
+}
+.null-news-list{
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background-color: #eee;
+}
+.null-news-notice{
+  position: absolute;
+  top: 50%; left: 50%;
+  font-size: 40rpx; color: #555; text-shadow: 0 0 5px #ccc;
+  transform: translate(-50%, -50%);
 }
 
 .list-item{
