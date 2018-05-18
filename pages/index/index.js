@@ -4,14 +4,15 @@ let util = require('../../utils/util.js')
 Page({
   data: {
     types: [
-      {swiper_id: 0, name: '国内', newsType: 'gn'}, 
-      {swiper_id: 1, name: '国际', newsType: 'gj'}, 
-      {swiper_id: 2, name: '财金', newsType: 'cj'}, 
-      {swiper_id: 3, name: '娱乐', newsType: 'yl'}, 
-      {swiper_id: 4, name: '军事', newsType: 'js'}, 
-      {swiper_id: 5, name: '体育', newsType: 'ty'}, 
-      {swiper_id: 6, name: '其他', newsType: 'other'}
+      {name: '国内', newsType: 'gn'}, 
+      {name: '国际', newsType: 'gj'}, 
+      {name: '财金', newsType: 'cj'}, 
+      {name: '娱乐', newsType: 'yl'}, 
+      {name: '军事', newsType: 'js'}, 
+      {name: '体育', newsType: 'ty'}, 
+      {name: '其他', newsType: 'other'}
     ],
+    statusMsg: '加载中',
     swiperCurrent: 0,
     newsList: []
   },
@@ -51,15 +52,12 @@ Page({
                 newsList[i].datetime = util.formatDate(newsList[i].date)
               }
               this.setData({ newsList });
-            }else{
-              // 没有数据的情况
-              this.setData({ newsList: [] })
             }
             
           }
         },
         fail: (res) => {
-          this.setData({ newsList: [] })
+          this.setData({ newsList: [] , statusMsg: '加载失败'})
         },
         complete: () => {
           wx.hideLoading();

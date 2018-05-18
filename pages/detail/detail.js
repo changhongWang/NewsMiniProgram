@@ -10,6 +10,10 @@ Page({
     news: {},
     detailId: ''
   },
+  onLoad: function(option) {
+    this.setData({detailId: option.id});
+    this.getNewsDetail();
+  },
   // 获取最新新闻
   getNewsDetail() {
     let id = this.data.detailId;

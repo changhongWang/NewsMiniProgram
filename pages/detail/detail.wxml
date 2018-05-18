@@ -8,7 +8,7 @@
   </view>
 </view>
 <view class='body'>
-  <view class='article-title-wrapper'>
+   <view class='article-title-wrapper'>
     <view class='article-title'>{{news.title}}</view>
     <view class='article-other'>
       <view class='article-source-time'>{{news.source}} {{news.datetime}}</view>
@@ -23,5 +23,5 @@
       </view>
       <view wx:if='{{item.type == "p"}}'>{{item.text}}</view>
     </view>
-  </view>
+  </view> 
 </view>

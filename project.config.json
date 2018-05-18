@@ -37,6 +37,12 @@
 					"name": "详情页",
 					"pathName": "pages/detail/detail",
 					"query": "id=1523074607642"
+				},
+				{
+					"id": -1,
+					"name": "测试页",
+					"pathName": "pages/test/test",
+					"query": ""
 				}
 			]
 		}

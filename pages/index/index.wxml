@@ -8,15 +8,15 @@
   </view>
   <scroll-view scroll-x>
     <view class='tab-wrapper'>
-      <view class='tab' wx:for="{{types}}">
-        <view class='tab-title' bindtap='changeSwiper' data-swiper-id='{{item.swiper_id}}'>{{item.name}}</view>
-        <view wx:if="{{swiperCurrent == item.swiper_id}}" class="line"></view>
+      <view class='tab' wx:for="{{types}}" wx:for-index="i">
+        <view class='tab-title' bindtap='changeSwiper' data-swiper-id='{{i}}'>{{item.name}}</view>
+        <view wx:if="{{swiperCurrent == i}}" class="line"></view>
       </view>
     </view>
 </scroll-view>
 </view>
 <view class="body">
-  <swiper style="width: 750rpx;height: 100%;"  current='{{swiperCurrent}}' circular='true' bindchange='changeLabel'>
+  <swiper style="width: 750rpx;height: 100%;"  current='{{swiperCurrent}}' circular='true' bindanimationfinish='changeLabel'>
   <block wx:for='{{types}}'>
       <swiper-item class="news-item">
         <!-- <view class="headline"></view> -->
@@ -26,11 +26,11 @@
                 <view>{{item.title}}</view>
                 <view class='item-source'>{{item.source}} {{item.datetime}}</view>
               </view>
-              <image wx:if='{{item.firstImage != "" && item.firstImage != undefined}}' src='{{item.firstImage}}' mode='aspectFill' class='list-image'></image>
+              <image wx:if='{{!firstImage}}' src='{{item.firstImage}}' mode='aspectFill' class='list-image'></image>
               <image wx:else src='/img/img-fail.png' mode='aspectFill' class='list-image'></image>
             </view>
             <view wx:if="{{newsList.length == 0}}" class="null-news-list">
-              <view class='null-news-notice'>无新闻或网络不畅</view>
+              <view class='null-news-notice'>{{statusMsg}}</view>
             </view>
           </view>
       </swiper-item>
