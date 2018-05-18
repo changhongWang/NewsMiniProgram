@@ -10,7 +10,7 @@
     <view class='tab-wrapper'>
       <view class='tab' wx:for="{{types}}">
         <view class='tab-title' bindtap='changeSwiper' data-swiper-id='{{item.swiper_id}}'>{{item.name}}</view>
-        <view wx:if="{{item.current}}" class="line"></view>
+        <view wx:if="{{swiperCurrent == item.swiper_id}}" class="line"></view>
       </view>
     </view>
 </scroll-view>

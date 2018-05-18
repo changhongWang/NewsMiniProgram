@@ -4,13 +4,13 @@ let util = require('../../utils/util.js')
 Page({
   data: {
     types: [
-      {swiper_id: 0, name: '国内', current: true , newsType: 'gn'}, 
-      {swiper_id: 1, name: '国际', current: false, newsType: 'gj'}, 
-      {swiper_id: 2, name: '财金', current: false, newsType: 'cj'}, 
-      {swiper_id: 3, name: '娱乐', current: false, newsType: 'yl'}, 
-      {swiper_id: 4, name: '军事', current: false, newsType: 'js'}, 
-      {swiper_id: 5, name: '体育', current: false, newsType: 'ty'}, 
-      {swiper_id: 6, name: '其他', current: false, newsType: 'other'}
+      {swiper_id: 0, name: '国内', newsType: 'gn'}, 
+      {swiper_id: 1, name: '国际', newsType: 'gj'}, 
+      {swiper_id: 2, name: '财金', newsType: 'cj'}, 
+      {swiper_id: 3, name: '娱乐', newsType: 'yl'}, 
+      {swiper_id: 4, name: '军事', newsType: 'js'}, 
+      {swiper_id: 5, name: '体育', newsType: 'ty'}, 
+      {swiper_id: 6, name: '其他', newsType: 'other'}
     ],
     swiperCurrent: 0,
     newsList: []
